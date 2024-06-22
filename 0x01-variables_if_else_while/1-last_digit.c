@@ -20,7 +20,7 @@ int main(void)
 	{
 		printf("and is greater than 5\n");
 	}
-	else if (last_d == 5)
+	else if (last_d == 0)
 	{
 		printf("and is 0\n");
 	}
