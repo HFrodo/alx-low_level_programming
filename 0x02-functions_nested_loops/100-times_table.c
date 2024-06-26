@@ -4,7 +4,7 @@
  * print_times_table - Prints the n times table, starting with 0
  * @n: The number for which the times table is to be printed
  *
- * Description: If n is greater than 15 or less than 0, 
+ * Description: If n is greater than 15 or less than 0,
  * the function should not print anything.
  */
 void print_times_table(int n)
