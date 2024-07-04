@@ -13,5 +13,7 @@ int _putchar(char c);
 void print_string(char *str);
 void initialize_array(char *arr, int size, char c);
 void print_memory(char *str);
+void print_number_recursive(int n);
+void print_number(int n);
 
 #endif /* MAIN_H */
