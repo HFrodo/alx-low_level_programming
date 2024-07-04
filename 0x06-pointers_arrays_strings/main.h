@@ -10,5 +10,8 @@ char *string_toupper(char *str);
 char *cap_string(char *str);
 char *leet(char *str);
 int _putchar(char c);
+void print_string(char *str);
+void initialize_array(char *arr, int size, char c);
+void print_memory(char *str);
 
 #endif /* MAIN_H */
