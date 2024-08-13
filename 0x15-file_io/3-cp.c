@@ -30,12 +30,13 @@ void print_error_and_exit(const char *msg, int code)
 int open_file(const char *filename, int flags, mode_t mode)
 {
 	int fd = open(filename, flags, mode);
+
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
 		exit(98);
 	}
-	return fd;
+	return (fd);
 }
 
 /**
@@ -73,7 +74,7 @@ void copy_content(int fd_from, int fd_to)
 
 	if (bytes_read == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file descriptor %d\n", fd_from);
+		dprintf(STDERR_FILENO, "Error: Can't read from fd %d\n", fd_from);
 		exit(98);
 	}
 }
