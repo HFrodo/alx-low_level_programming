@@ -127,7 +127,7 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 	{
 		fprintf(stderr, "Usage: %s elf_filename\n", argv[0]);
-		return 98;
+		return (98);
 	}
 
 	fd = open(argv[1], O_RDONLY);
@@ -152,5 +152,5 @@ int main(int argc, char *argv[])
 	print_elf_header(&header);
 
 	close(fd);
-	return 0;
+	return (0);
 }
