@@ -1,7 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
-
-#define BUFFER_SIZE 1024
 
 /**
  * print_error_and_exit - Print an error message and exit
@@ -31,6 +28,7 @@ int open_file(const char *filename, int flags, mode_t mode)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
 		exit(98);
 	}
+
 	return (fd);
 }
 
@@ -60,17 +58,22 @@ void copy_content(int fd_from, int fd_to)
 	while ((bytes_read = read(fd_from, buffer, BUFFER_SIZE)) > 0)
 	{
 		bytes_written = write(fd_to, buffer, bytes_read);
-
-		if (bytes_written != bytes_read)
+		if (bytes_written == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to fd %d\n", fd_to);
+			close(fd_from);
+			close(fd_to);
 			exit(99);
 		}
 	}
 
 	if (bytes_read == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from fd %d\n", fd_from);
+		dprintf(STDERR_FILENO,
+				"Error: Can't read from file descriptor %d\n",
+				fd_from);
+		close(fd_from);
+		close(fd_to);
 		exit(98);
 	}
 }
